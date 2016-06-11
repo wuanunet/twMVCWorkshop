@@ -1,0 +1,37 @@
+﻿@model twMVCWorkshop.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<!-- Content Body -->
+<h3>分類管理</h3>
+
+@using (Html.BeginForm("Create", "Category", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>編輯</legend>
+
+        <div class="control-group">
+            <!-- CategoryName -->
+            @Html.LabelFor(model => model.Name, new {@class = "control-label", @for = "categoryName"})
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Name, new {@placeholder = "", @class = "input-xlarge"})
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="建立" />
+        | <a href="@Url.Action("Index","Category")">回到列表</a>
+    </div>
+}
+    
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

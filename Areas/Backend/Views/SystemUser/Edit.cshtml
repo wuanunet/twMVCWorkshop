@@ -1,0 +1,72 @@
+﻿@model twMVCWorkshop.Models.SystemUser
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<!-- Content Body -->
+<h3>使用者管理</h3>
+
+@using (Html.BeginForm("Edit", "SystemUser", FormMethod.Post, new { @class="form-horizontal" })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>編輯</legend>
+        @Html.HiddenFor(model => model.ID)
+        <div class="control-group">
+            <!-- Username -->
+            @Html.LabelFor(model => model.Name, new { @class = "control-label", @for = "username" })
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Name, new { @id = "username", @placeholder = "", @class = "input-xlarge" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- Account -->
+            @Html.LabelFor(model => model.Account, new { @class = "control-label", @for = "account" })
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Account, new { @id = "account", @placeholder = "", @class = "input-xlarge" })
+                @Html.ValidationMessageFor(model => model.Account)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- Password-->
+            @Html.LabelFor(model => model.Password, new { @class = "control-label", @for = "password" })
+            <div class="controls">
+                @Html.PasswordFor(model => model.Password, new { @id = "password", @placeholder = "", @class = "input-xlarge" })
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- Password -->
+            @Html.LabelFor(model => model.Password, new { @class = "control-label", @for = "password_confirm" })
+            <div class="controls">
+                @Html.PasswordFor(model => model.Password, new { @id = "password_confirm", @placeholder = "", @class = "input-xlarge" })
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <!-- E-mail -->
+            @Html.LabelFor(model => model.Email, new { @class = "control-label", @for = "email" })
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Email, new { @id = "email", @placeholder = "", @class = "input-xlarge" })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success" value="建立" />
+        | @Html.ActionLink("回到列表", "Index", "SystemUser")
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

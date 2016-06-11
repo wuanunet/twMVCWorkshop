@@ -1,0 +1,115 @@
+﻿@using PagedList.Mvc
+@using twMVCWorkshop.Extensions
+@using twMVCWorkshop.ViewModels
+@model twMVCWorkshop.ViewModels.QueryOption<twMVCWorkshop.Areas.Backend.Models.ArticleViewModel>
+
+@{
+    ViewBag.Title = "Index";
+
+    int count = 1;
+}
+
+<div class="page-header">
+    <h3>文章管理</h3>
+</div>
+
+<div class="btn-toolbar">
+    @Html.ActionLink("建立文章", "Create", null, new { @class = "btn btn-success" })
+    
+    @using (Html.BeginForm("Index", "Article", FormMethod.Get, new { @class = "form-search pull-right" }))
+    {
+        <div class="input-append">
+            
+            @Html.HiddenFor(x => x.Page)
+            @Html.HiddenFor(x => x.PageSize)
+            @Html.HiddenFor(x => x.Column)
+            @Html.HiddenFor(x => x.Order)
+
+            @Html.TextBoxFor(x => x.Keyword, new { @class = "input-small search-query", @name = "q", @placeholder = "搜尋 ..." })
+            <button type="submit" class="btn"><i class="icon icon-search"></i></button>
+        </div>
+    }
+</div>
+
+<div class="">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr style="background-color: #E8EEF4;">
+                <th>#</th>
+                @Html.SortableFor(x => x.Category.Name, "th", "分類名稱")
+                @Html.SortableFor(x => x.Subject, "th", "標題")
+                <th>
+                    @Html.SortableFor(x => x.IsPublish, "span", "已公布")
+                    <br />
+                    @Html.SortableFor(x => x.PublishDate, "span", "公布日期")
+                </th>
+                @Html.SortableFor(x => x.ViewCount, "th", "閱讀數")
+                <th>
+                    @Html.SortableFor(x => x.CreateUser, "span", "建檔人")
+                    <br />
+                    @Html.SortableFor(x => x.CreateDate, "span", "建檔日期")
+                </th>
+                <th>
+                    @Html.SortableFor(x => x.UpdateUser, "span", "修改人")
+                    <br />
+                    @Html.SortableFor(x => x.UpdateDate, "span", "修改日期")
+                </th>
+                @*@Html.SortableFor(x => x.UpdateUser, "th", "修改人")
+                @Html.SortableFor(x => x.UpdateDate, "th", "修改日期")*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Result)
+            {
+                <tr>
+                    <td>@count</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+                    <td>
+                        @*@(item.IsPublish ? "是" : "否")*@
+                        @Html.DisplayFor(modelItem => item.IsPublish)
+                        @*@Html.DisplayFor(modelItem => item.IsPublish, "Boolean")*@
+                        <br />
+                        @Html.DisplayFor(modelItem => item.PublishDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ViewCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateUser)
+                        <br />
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdateUser)
+                        <br />
+                        @Html.DisplayFor(modelItem => item.UpdateDate)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn">操作</button>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("檢視", "Details", new { id = item.ID })</li>
+                                <li>@Html.ActionLink("編輯", "Edit", new { id = item.ID })</li>
+                                <li>@Html.ActionLink("刪除", "Delete", new { id = item.ID })</li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+
+                count += 1;
+            }
+        </tbody>
+    </table>
+
+    @Html.PagedListPager(Model.Result, 
+                         x => Url.Action("Index", new { page = x }),
+                         PagingOptions.Standard)
+
+</div>

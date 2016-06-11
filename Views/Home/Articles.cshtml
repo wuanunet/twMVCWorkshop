@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Articles";
+}
+
+@*@Html.Partial("Articles/_SiteMap", new ViewDataDictionary{{"sitemap", "文章列表"}})*@
+@Html.Partial("Articles/_SiteMap")
+
+<div class="text-right">
+    分類：
+            <select id="category">
+                <option>全部</option>
+                <option value="1">分類一</option>
+                <option value="2">分類二</option>
+            </select>
+</div>
+
+<div class="row">
+    <div class="span8">
+        <div class="row">
+            <div class="span12">
+                <h4><strong><a href="ArticleDetail.html">文章標題</a></strong></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span6">
+                <p>
+                    他展特自品念城……味遠心；生林長安斯來冷經家，較的一也，散期送草你電，石毒排的立比業又會可，自能自四？一大人死能得腦益成有業、方領在會……來交沒統和能大就響沒房，部得前？語資建遊們情知無動己可白自卻種本人減報？雖一務明單事就充每下這了別心之保，再手響還時座也務：並種規結或與術行在何子小常，萬真很！
+                </p>
+                <p class="text-right">
+                    <a class="btn" href="ArticleDetail.html">閱讀更多</a>
+                </p>
+            </div>
+            <div class="span2">
+                <a href="#" class="thumbnail">
+                    <img src="http://placehold.it/320x240" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span8">
+                <p></p>
+                <p>
+                    <i class="icon-user"></i>by twMVC
+                            | <i class="icon-calendar"></i>2013/08/01 00:00:00
+                            | <i class="icon-tags"></i>分類 : <a href="#"><span class="label label-info">分類一</span></a>
+                    | <i class="icon-eye-open"></i>瀏覽次數：111
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="pagination">
+    <ul>
+        <li><a href="#">Prev</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</div>

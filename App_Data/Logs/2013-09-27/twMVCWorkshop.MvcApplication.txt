@@ -1,0 +1,19 @@
+2013-09-27 17:08:43.5348 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0674658
+SELECT TOP (5) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[CategoryID] AS [CategoryID], 
+[Extent1].[Subject] AS [Subject], 
+[Extent1].[Summary] AS [Summary], 
+[Extent1].[ContentText] AS [ContentText], 
+[Extent1].[IsPublish] AS [IsPublish], 
+[Extent1].[PublishDate] AS [PublishDate], 
+[Extent1].[ViewCount] AS [ViewCount], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Article] AS [Extent1]
+WHERE ([Extent1].[IsPublish] = 1) AND ([Extent1].[PublishDate] <= (SysDateTime()))
+ORDER BY [Extent1].[CreateDate] DESC
+ 
+

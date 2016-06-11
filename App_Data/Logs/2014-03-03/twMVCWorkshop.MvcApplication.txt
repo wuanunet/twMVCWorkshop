@@ -1,0 +1,38 @@
+2014-03-03 11:09:17.3049 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0060009
+SELECT TOP (5) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[CategoryID] AS [CategoryID], 
+[Extent1].[Subject] AS [Subject], 
+[Extent1].[Summary] AS [Summary], 
+[Extent1].[ContentText] AS [ContentText], 
+[Extent1].[IsPublish] AS [IsPublish], 
+[Extent1].[PublishDate] AS [PublishDate], 
+[Extent1].[ViewCount] AS [ViewCount], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Article] AS [Extent1]
+WHERE ([Extent1].[IsPublish] = 1) AND ([Extent1].[PublishDate] <= (SysDateTime()))
+ORDER BY [Extent1].[CreateDate] DESC
+ 
+
+2014-03-03 13:26:26.8524 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0070010
+SELECT TOP (5) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[CategoryID] AS [CategoryID], 
+[Extent1].[Subject] AS [Subject], 
+[Extent1].[Summary] AS [Summary], 
+[Extent1].[ContentText] AS [ContentText], 
+[Extent1].[IsPublish] AS [IsPublish], 
+[Extent1].[PublishDate] AS [PublishDate], 
+[Extent1].[ViewCount] AS [ViewCount], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Article] AS [Extent1]
+WHERE ([Extent1].[IsPublish] = 1) AND ([Extent1].[PublishDate] <= (SysDateTime()))
+ORDER BY [Extent1].[CreateDate] DESC
+ 
+

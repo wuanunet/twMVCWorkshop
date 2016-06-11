@@ -1,0 +1,97 @@
+﻿@using PagedList.Mvc
+@using twMVCWorkshop.Extensions
+@using twMVCWorkshop.ViewModels
+@model QueryOption<twMVCWorkshop.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+
+    int count = 1;
+}
+
+<div class="page-header">
+    <h3>分類管理</h3>
+</div>
+
+<div class="btn-toolbar">
+    <a href="@Url.Action("Create","Category")" class="btn btn-success">建立分類</a>
+    
+    @using (Html.BeginForm("Index", "Category", FormMethod.Get, new { @class = "form-search pull-right" }))
+    {
+        <div class="input-append">
+            
+            @Html.HiddenFor(x => x.Page)
+            @Html.HiddenFor(x => x.PageSize)
+            @Html.HiddenFor(x => x.Column)
+            @Html.HiddenFor(x => x.Order)
+
+            @Html.TextBoxFor(x => x.Keyword, new { @class = "input-small search-query", @name = "q", @placeholder = "搜尋 ..." })
+            <button type="submit" class="btn"><i class="icon icon-search"></i></button>
+        </div>
+    }
+
+</div>
+<div class="">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr style="background-color: #E8EEF4;">
+                <th>#</th>
+                @Html.SortableFor(x => x.Name, "th")
+                @Html.SortableFor(x => x.CreateUser, "th")
+                @Html.SortableFor(x => x.CreateDate, "th")
+                @Html.SortableFor(x => x.UpdateUser, "th")
+                @Html.SortableFor(x => x.UpdateDate, "th")
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Result)
+            {
+                <tr>
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateUser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdateUser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdateDate)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn">操作</button>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("檢視", "Details", new { id = item.ID })</li>
+                                <li>@Html.ActionLink("編輯", "Edit", new { id = item.ID })</li>
+                                <li>@Html.ActionLink("刪除", "Delete", new { id = item.ID })</li>
+                            </ul>
+                        </div>
+                        @*@Html.ActionLink("檢視", "Details", new { id = item.ID }, new { @class = "btn" })
+                        @Html.ActionLink("編輯", "Edit", new { id = item.ID }, new { @class = "btn" })
+                        @Html.ActionLink("刪除", "Delete", new { id = item.ID }, new { @class = "btn btn-warning" })*@
+                    </td>
+                </tr>
+
+                count += 1;
+            }
+        </tbody>
+    </table>
+    
+    @Html.PagedListPager(Model.Result, 
+                         x => Url.Action("Index", new { page = x }),
+                         PagingOptions.Standard)
+
+</div>
+
+
+

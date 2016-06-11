@@ -1,0 +1,16 @@
+﻿@model IEnumerable<twMVCWorkshop.Models.Article>
+
+@foreach (var item in Model)
+{
+    <div class="span8">
+        <h4>
+            @Html.ActionLink(item.Subject, "Details", new { Controller = "Article", id = item.ID })
+        </h4>
+        <p>
+            @item.Summary
+        </p>
+        <p class="pull-right">
+            <i class="icon-calendar"></i> @Html.DisplayFor(x => item.CreateDate)
+        </p>
+    </div>
+}

@@ -1,0 +1,80 @@
+2013-09-01 10:46:58.2070 | FATAL | twMVCWorkshop.Controllers.AboutController | error 
+
+2013-09-01 10:47:01.7846 | FATAL | twMVCWorkshop.Controllers.AboutController | error 
+
+ ==================================================================================================== 
+ 發生時間：2013-09-01 10:50:43.7575 
+
+ Log等級：FATAL 
+
+ Logger：twMVCWorkshop.Controllers.AboutController 
+
+ Source：twMVCWorkshop.Controllers.AboutController.Index 
+
+ 錯誤訊息：error 
+
+ ==================================================================================================== 
+ 
+ ==================================================================================================== 
+ 發生時間：2013-09-01 10:54:37.9271 
+
+ Log等級：FATAL 
+
+ Logger：twMVCWorkshop.Controllers.AboutController 
+
+ Source：twMVCWorkshop.Controllers.AboutController.Index 
+
+ 錯誤訊息：
+Error in Path : /About
+Raw Url : /About
+Type of Exception : DivideByZeroException
+Message : 嘗試以零除。
+Source : twMVCWorkshop
+Stack Trace :    於 twMVCWorkshop.Controllers.AboutController.Index() 於 e:\NewInetpub\twMVCWorkshop\twMVCWorkshop\Controllers\AboutController.cs: 行 21
+TargetSite : System.Web.Mvc.ActionResult Index()
+ 
+
+ ==================================================================================================== 
+ 
+ ==================================================================================================== 
+ 發生時間：2013-09-01 11:09:06.2390 
+
+ Log等級：FATAL 
+
+ Logger：twMVCWorkshop.Controllers.AboutController 
+
+ Source：twMVCWorkshop.Controllers.AboutController.Index 
+
+ 錯誤訊息：
+Error in Path : /About
+Raw Url : /About
+Type of Exception : DivideByZeroException
+Message : 嘗試以零除。
+Source : twMVCWorkshop
+Stack Trace :    於 twMVCWorkshop.Controllers.AboutController.Index() 於 e:\NewInetpub\twMVCWorkshop\twMVCWorkshop\Controllers\AboutController.cs: 行 21
+TargetSite : System.Web.Mvc.ActionResult Index()
+ 
+
+ ==================================================================================================== 
+ 
+ ==================================================================================================== 
+ 發生時間：2013-09-01 11:12:59.7705 
+
+ Log等級：FATAL 
+
+ Logger：twMVCWorkshop.Controllers.AboutController 
+
+ Source：twMVCWorkshop.Controllers.AboutController.Index 
+
+ 錯誤訊息：
+Error in Path : /About
+Raw Url : /About
+Type of Exception : DivideByZeroException
+Message : 嘗試以零除。
+Source : twMVCWorkshop
+Stack Trace :    於 twMVCWorkshop.Controllers.AboutController.Index() 於 e:\NewInetpub\twMVCWorkshop\twMVCWorkshop\Controllers\AboutController.cs: 行 21
+TargetSite : System.Web.Mvc.ActionResult Index()
+ 
+
+ ==================================================================================================== 
+ 

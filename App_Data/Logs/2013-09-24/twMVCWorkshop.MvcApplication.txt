@@ -1,0 +1,213 @@
+2013-09-24 13:27:27.6062 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0430080
+SELECT TOP (5) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[CategoryID] AS [CategoryID], 
+[Extent1].[Subject] AS [Subject], 
+[Extent1].[Summary] AS [Summary], 
+[Extent1].[ContentText] AS [ContentText], 
+[Extent1].[IsPublish] AS [IsPublish], 
+[Extent1].[PublishDate] AS [PublishDate], 
+[Extent1].[ViewCount] AS [ViewCount], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Article] AS [Extent1]
+WHERE ([Extent1].[IsPublish] = 1) AND ([Extent1].[PublishDate] <= (SysDateTime()))
+ORDER BY [Extent1].[CreateDate] DESC
+ 
+
+2013-09-24 13:28:47.2024 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0059962
+declare @p__linq__0 String = cast(N'wuanunet' as String);
+
+SELECT TOP (1) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[Name] AS [Name], 
+[Extent1].[Account] AS [Account], 
+[Extent1].[Password] AS [Password], 
+[Extent1].[Salt] AS [Salt], 
+[Extent1].[Email] AS [Email], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[SystemUser] AS [Extent1]
+WHERE [Extent1].[Account] = @p__linq__0
+ 
+
+2013-09-24 13:28:50.9488 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0020003
+SELECT 
+[GroupBy1].[A1] AS [C1]
+FROM ( SELECT 
+	COUNT(1) AS [A1]
+	FROM [dbo].[Category] AS [Extent1]
+)  AS [GroupBy1]
+ 
+
+2013-09-24 13:28:50.9748 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0019986
+SELECT TOP (5) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[Name] AS [Name], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM ( SELECT [Extent1].[ID] AS [ID], [Extent1].[Name] AS [Name], [Extent1].[CreateUser] AS [CreateUser], [Extent1].[CreateDate] AS [CreateDate], [Extent1].[UpdateUser] AS [UpdateUser], [Extent1].[UpdateDate] AS [UpdateDate], row_number() OVER (ORDER BY [Extent1].[ID] ASC) AS [row_number]
+	FROM [dbo].[Category] AS [Extent1]
+)  AS [Extent1]
+WHERE [Extent1].[row_number] > 0
+ORDER BY [Extent1].[ID] ASC
+ 
+
+2013-09-24 13:28:51.5179 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0040002
+declare @p__linq__0 Guid = cast(N'a0853315-a88a-4273-8c94-27fd90a673d8' as Guid);
+
+SELECT TOP (1) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[Name] AS [Name], 
+[Extent1].[Account] AS [Account], 
+[Extent1].[Password] AS [Password], 
+[Extent1].[Salt] AS [Salt], 
+[Extent1].[Email] AS [Email], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[SystemUser] AS [Extent1]
+WHERE [Extent1].[ID] = @p__linq__0
+ 
+
+2013-09-24 13:28:52.5890 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0020003
+SELECT 
+[GroupBy1].[A1] AS [C1]
+FROM ( SELECT 
+	COUNT(1) AS [A1]
+	FROM [dbo].[Article] AS [Extent1]
+)  AS [GroupBy1]
+ 
+
+2013-09-24 13:28:52.6331 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0070013
+SELECT TOP (5) 
+[Join1].[ViewCount] AS [ViewCount], 
+[Join1].[ID1] AS [ID], 
+[Join1].[CategoryID] AS [CategoryID], 
+[Join1].[ID2] AS [ID1], 
+[Join1].[Name] AS [Name], 
+[Join1].[CreateUser1] AS [CreateUser], 
+[Join1].[CreateDate1] AS [CreateDate], 
+[Join1].[UpdateUser1] AS [UpdateUser], 
+[Join1].[UpdateDate1] AS [UpdateDate], 
+[Join1].[Subject] AS [Subject], 
+[Join1].[Summary] AS [Summary], 
+[Join1].[ContentText] AS [ContentText], 
+[Join1].[IsPublish] AS [IsPublish], 
+[Join1].[PublishDate] AS [PublishDate], 
+[Join1].[CreateUser2] AS [CreateUser1], 
+[Join1].[CreateDate2] AS [CreateDate1], 
+[Join1].[UpdateUser2] AS [UpdateUser1], 
+[Join1].[UpdateDate2] AS [UpdateDate1]
+FROM ( SELECT [Extent1].[ID] AS [ID1], [Extent1].[CategoryID] AS [CategoryID], [Extent1].[Subject] AS [Subject], [Extent1].[Summary] AS [Summary], [Extent1].[ContentText] AS [ContentText], [Extent1].[IsPublish] AS [IsPublish], [Extent1].[PublishDate] AS [PublishDate], [Extent1].[ViewCount] AS [ViewCount], [Extent1].[CreateUser] AS [CreateUser2], [Extent1].[CreateDate] AS [CreateDate2], [Extent1].[UpdateUser] AS [UpdateUser2], [Extent1].[UpdateDate] AS [UpdateDate2], [Extent2].[ID] AS [ID2], [Extent2].[Name] AS [Name], [Extent2].[CreateUser] AS [CreateUser1], [Extent2].[CreateDate] AS [CreateDate1], [Extent2].[UpdateUser] AS [UpdateUser1], [Extent2].[UpdateDate] AS [UpdateDate1], row_number() OVER (ORDER BY [Extent1].[ID] ASC) AS [row_number]
+	FROM  [dbo].[Article] AS [Extent1]
+	INNER JOIN [dbo].[Category] AS [Extent2] ON [Extent1].[CategoryID] = [Extent2].[ID]
+)  AS [Join1]
+WHERE [Join1].[row_number] > 0
+ORDER BY [Join1].[ID1] ASC
+ 
+
+2013-09-24 13:28:57.9537 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0020013
+declare @p0 Guid = cast(N'8d0bdd8f-05cf-4750-9027-75ad8d3c9ba3' as Guid);
+
+SELECT TOP (2) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[CategoryID] AS [CategoryID], 
+[Extent1].[Subject] AS [Subject], 
+[Extent1].[Summary] AS [Summary], 
+[Extent1].[ContentText] AS [ContentText], 
+[Extent1].[IsPublish] AS [IsPublish], 
+[Extent1].[PublishDate] AS [PublishDate], 
+[Extent1].[ViewCount] AS [ViewCount], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Article] AS [Extent1]
+WHERE [Extent1].[ID] = @p0
+ 
+
+2013-09-24 13:28:57.9797 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0030015
+declare @EntityKeyValue1 Guid = cast(N'3e4d3a7f-9c69-4235-8d63-b65f88c79e45' as Guid);
+
+SELECT 
+[Extent1].[ID] AS [ID], 
+[Extent1].[Name] AS [Name], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Category] AS [Extent1]
+WHERE [Extent1].[ID] = @EntityKeyValue1
+ 
+
+2013-09-24 13:29:04.2635 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0020028
+declare @p0 Guid = cast(N'8d0bdd8f-05cf-4750-9027-75ad8d3c9ba3' as Guid);
+
+SELECT TOP (2) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[CategoryID] AS [CategoryID], 
+[Extent1].[Subject] AS [Subject], 
+[Extent1].[Summary] AS [Summary], 
+[Extent1].[ContentText] AS [ContentText], 
+[Extent1].[IsPublish] AS [IsPublish], 
+[Extent1].[PublishDate] AS [PublishDate], 
+[Extent1].[ViewCount] AS [ViewCount], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Article] AS [Extent1]
+WHERE [Extent1].[ID] = @p0
+ 
+
+2013-09-24 13:29:04.2975 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0029962
+declare @EntityKeyValue1 Guid = cast(N'8d0bdd8f-05cf-4750-9027-75ad8d3c9ba3' as Guid);
+
+SELECT 
+[Extent1].[ID] AS [ID], 
+[Extent1].[ArticleID] AS [ArticleID], 
+[Extent1].[FileName] AS [FileName], 
+[Extent1].[Description] AS [Description], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Photo] AS [Extent1]
+WHERE [Extent1].[ArticleID] = @EntityKeyValue1
+ 
+
+2013-09-24 13:29:04.3355 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0009995
+SELECT 
+[Extent1].[ID] AS [ID], 
+[Extent1].[Name] AS [Name], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Category] AS [Extent1]
+ 
+
+2013-09-24 13:29:05.4037 | TRACE | twMVCWorkshop.MvcApplication | -- Command finished - time: 00:00:00.0100014
+declare @p__linq__0 Guid = cast(N'570ce95d-ad7f-4e1f-94f9-53327e24e9eb' as Guid);
+
+SELECT TOP (1) 
+[Extent1].[ID] AS [ID], 
+[Extent1].[ArticleID] AS [ArticleID], 
+[Extent1].[FileName] AS [FileName], 
+[Extent1].[Description] AS [Description], 
+[Extent1].[CreateUser] AS [CreateUser], 
+[Extent1].[CreateDate] AS [CreateDate], 
+[Extent1].[UpdateUser] AS [UpdateUser], 
+[Extent1].[UpdateDate] AS [UpdateDate]
+FROM [dbo].[Photo] AS [Extent1]
+WHERE [Extent1].[ID] = @p__linq__0
+ 
+

@@ -1,0 +1,11 @@
+﻿@model twMVCWorkshop.Models.Article
+
+<p>
+    <i class="icon-user"></i>by @Html.DisplayFor(x => Model.CreateUser) | 
+    <i class="icon-calendar"></i>@Html.DisplayFor(x => Model.CreateDate) | 
+    <i class="icon-tags"></i> 分類 : 
+    <a href="#">
+        <span class="label label-info"> @Model.Category.Name</span>
+    </a> | 
+    <i class="icon-eye-open"></i> 瀏覽次數：@Model.ViewCount
+</p>
